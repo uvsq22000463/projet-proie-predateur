@@ -21,7 +21,7 @@ canevas.grid()
 racine.title("Proie-Prédateur")
 
 # Variables
-lim_carre = 90
+lim_carre = 30
 larg = 500
 haut = 500
 larg_case = larg // lim_carre
@@ -33,7 +33,7 @@ Epre = 4
 miam = 1
 Erepro = 6
 flair = 6
-
+lim_carre2=29
 # Liste
 l=[]
 
@@ -47,15 +47,15 @@ for b in range(1, lim_carre):
       carre = canevas.create_rectangle(x, y, x + larg_case, y + haut_case, fill = "black", outline = "grey")
       grille[b][c] = carre
       # Création des coordonnées X et Y d'une proie
-      proie1 = rd.randint(0, 89)
-      proie2 = rd.randint(0, 89)     
+      proie1 = rd.randint(0, lim_carre2)
+      proie2 = rd.randint(0, lim_carre2)     
       # Apparition de cette proie à partir des coordonnées générées                                
       canevas.itemconfigure(grille[proie1][proie2], fill = "blue")   
       # Idem     
-      proie3 = rd.randint(0, 89) 
-      proie4 = rd.randint(0, 89) 
-      vide1 = rd.randint(0,89)
-      vide2 = rd.randint(0,89)
+      proie3 = rd.randint(0, lim_carre2) 
+      proie4 = rd.randint(0, lim_carre2) 
+      vide1 = rd.randint(0,lim_carre2)
+      vide2 = rd.randint(0,lim_carre2)
       canevas.itemconfigure(grille[proie3][proie4], fill = "blue")
       canevas.itemconfigure(grille[vide1][vide2], fill = "black")    
       
@@ -66,18 +66,18 @@ for b in range(1, lim_carre):
 # Fonction pour utilisé le boutton "Tour de jeu"
 def tour_de_jeu() :
   # La portée des variables s'étend à tout le programme
- global Aproie, grille, l, Apre, step3, step4, miam, Epre, flair
+ global Aproie, grille, l, Apre, step3, step4, miam, Epre, flair,lim_carre2
  
  # Apparition des proies et des prédateures au hasard dans le canevas
  # Chaque tour de jeu il y'a 3 nouvelles proies
- proie5 = rd.randint(0, 89)
- proie6 = rd.randint(0, 89) 
- proie7 = rd.randint(0, 89)
- proie8 = rd.randint(0, 89)
- proie9 = rd.randint(0, 89)
- proie10 = rd.randint(0, 89)
- pred_a = rd.randint(0, 89) 
- pred_b = rd.randint(0, 89)
+ proie5 = rd.randint(0, lim_carre2)
+ proie6 = rd.randint(0, lim_carre2) 
+ proie7 = rd.randint(0, lim_carre2)
+ proie8 = rd.randint(0, lim_carre2)
+ proie9 = rd.randint(0, lim_carre2)
+ proie10 = rd.randint(0, lim_carre2)
+ pred_a = rd.randint(0, lim_carre2) 
+ pred_b = rd.randint(0, lim_carre2)
 
  # Liste qui enregistre les coordonnées des proies
  l.extend([proie5, proie6])
@@ -93,7 +93,7 @@ def tour_de_jeu() :
  
  if Aproie >- 1:
      for i in range (0, 88, 2):
-          for t in range(1, 89, 2):
+          for t in range(1, lim_carre2, 2):
             # Déplacement des proies
               deplacement1 = i + step           
               deplacement2 = t + step2
@@ -103,12 +103,12 @@ def tour_de_jeu() :
       #le for i in range permet l'apparition de prédateurs              
      for i in range(lim_carre):
        # Apparition des prédateurs
-        pred1 = rd.randint(0, 89)
-        pred2 = rd.randint(0, 89)
+        pred1 = rd.randint(0, lim_carre2)
+        pred2 = rd.randint(0, lim_carre2)
         canevas.itemconfigure(grille[pred1][pred2], fill = "red")
  if Aproie == 2:
       for i in range (0, 88, 2):
-          for t in range(1, 89, 2):
+          for t in range(1, lim_carre2, 2):
             # Fuite des proies (partie 4)
               step3 = rd.choice([0, 1, -1])
               step4 = rd.choice([0, 1, -1])   
@@ -131,8 +131,8 @@ def tour_de_jeu() :
                  
       for i in range(lim_carre):
         # Apparition des prédateurs au hasard dans le canevas
-        pred3 = rd.randint(0, 89)
-        pred4 = rd.randint(0, 89)
+        pred3 = rd.randint(0, lim_carre2)
+        pred4 = rd.randint(0, lim_carre2)
         canevas.itemconfigure(grille[pred3][pred4], fill = "red")
                  
  if Aproie <= -1:
@@ -143,8 +143,8 @@ def tour_de_jeu() :
                      canevas.itemconfigure(grille[vide5][vide6], fill = "black") 
   
              for i in range(lim_carre):
-               pred5 = rd.randint(0, 89) 
-               pred6 = rd.randint(0, 89)
+               pred5 = rd.randint(0, lim_carre2) 
+               pred6 = rd.randint(0, lim_carre2)
                # Dispersion des prédateurs
                pred7 = pred5 + step 
                pred8 = pred6 + step2
