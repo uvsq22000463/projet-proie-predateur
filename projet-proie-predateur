@@ -54,8 +54,10 @@ for b in range(1, lim_carre):
       # Idem     
       proie3 = rd.randint(0, 89) 
       proie4 = rd.randint(0, 89) 
+      vide1 = rd.randint(0,89)
+      vide2 = rd.randint(0,89)
       canevas.itemconfigure(grille[proie3][proie4], fill = "blue")
-      canevas.itemconfigure(grille[proie4][proie3], fill = "black")    
+      canevas.itemconfigure(grille[vide1][vide2], fill = "black")    
       
 # Variable servant au déplacement des proies et des prédateurs
       step = rd.choice([1, -1, 0])                               
