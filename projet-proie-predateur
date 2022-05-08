@@ -92,7 +92,7 @@ def tour_de_jeu() :
  canevas.itemconfigure(grille[pred_a][pred_b], fill = "red")
  
  if Aproie >- 1:
-     for i in range (0, 88, 2):
+     for i in range (0, 28, 2):
           for t in range(1, lim_carre2, 2):
             # Déplacement des proies
               deplacement1 = i + step           
@@ -107,7 +107,7 @@ def tour_de_jeu() :
         pred2 = rd.randint(0, lim_carre2)
         canevas.itemconfigure(grille[pred1][pred2], fill = "red")
  if Aproie == 2:
-      for i in range (0, 88, 2):
+      for i in range (0, 28, 2):
           for t in range(1, lim_carre2, 2):
             # Fuite des proies (partie 4)
               step3 = rd.choice([0, 1, -1])
