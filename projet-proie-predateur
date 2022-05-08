@@ -1,0 +1,190 @@
+# projet-proie-predateur
+projet-proie-predateur
+
+#########################################
+# groupe MIASHS TD01
+# David DAULASIM
+# Adama KOUNDOUL
+# Rina Andrianina RASOLONJATOVO
+# Amélie COTTANCIN
+# https://github.com/uvsq22000463/projet-proie-predateur
+#########################################
+
+import tkinter as tk
+import random as rd
+from tkinter.ttk import Button
+
+# Création du canevas à fond noir
+racine = tk.Tk()
+canevas = tk.Canvas(racine, height = 450, width = 450, bg = "black")
+canevas.grid()
+racine.title("Proie-Prédateur")
+
+# Variables
+lim_carre = 90
+larg = 500
+haut = 500
+larg_case = larg // lim_carre
+haut_case = haut // lim_carre
+grille = None
+Aproie = 3
+Apre = 5
+Epre = 4
+miam = 1
+Erepro = 6
+flair = 6
+
+# Liste
+l=[]
+
+# Création des proies en bleu et des prédateurs en rouge
+grille = [[0 for i in range(lim_carre)]for j in range(lim_carre)]
+
+for b in range(1, lim_carre):
+     x = (b) * larg_case
+     for c in range(1, lim_carre):
+      y = (c) * haut_case
+      carre = canevas.create_rectangle(x, y, x + larg_case, y + haut_case, fill = "black", outline = "grey")
+      grille[b][c] = carre
+      # Création des coordonnées X et Y d'une proie
+      proie1 = rd.randint(0, 89)
+      proie2 = rd.randint(0, 89)     
+      # Apparition de cette proie à partir des coordonnées générées                                
+      canevas.itemconfigure(grille[proie1][proie2], fill = "blue")   
+      # Idem     
+      proie3 = rd.randint(0, 89) 
+      proie4 = rd.randint(0, 89) 
+      canevas.itemconfigure(grille[proie3][proie4], fill = "blue")
+      canevas.itemconfigure(grille[proie4][proie3], fill = "black")    
+      
+# Variable servant au déplacement des proies
+      step = rd.choice([1, -1, 0])                               
+      step2 = rd.choice([1, -1, 0])
+
+# Fonction pour utilisé le boutton "Tour de jeu"
+def tour_de_jeu() :
+  # La portée des variables s'étend à tout le programme
+ global Aproie, grille, l, Apre, step3, step4, miam, Epre, flair
+ 
+ # Apparition des proies et des prédateures au hasard dans le canevas
+ # Chaque tour de jeu il y'a 3 nouvelles proies
+ proie5 = rd.randint(0, 89)
+ proie6 = rd.randint(0, 89) 
+ proie7 = rd.randint(0, 89)
+ proie8 = rd.randint(0, 89)
+ proie9 = rd.randint(0, 89)
+ proie10 = rd.randint(0, 89)
+ pred_a = rd.randint(0, 89) 
+ pred_b = rd.randint(0, 89)
+
+ # Liste qui enregistre les coordonnées des proies
+ l.extend([proie5, proie6])
+
+  # Condition pour ne pas que les proies remplacent les prédateurs
+ if grille[proie5][proie6] != grille[pred_a][pred_b] and grille[proie7][proie8] != grille[pred_a][pred_b] and grille[proie9][proie10] != grille[pred_a][pred_b]:
+     canevas.itemconfigure(grille[proie5][proie6], fill = "blue") 
+     l.extend([proie7,proie8])
+     canevas.itemconfigure(grille[proie7][proie8], fill = "blue") 
+     l.extend([proie9,proie10])
+     canevas.itemconfigure(grille[proie9][proie10], fill = "blue")
+ canevas.itemconfigure(grille[pred_a][pred_b], fill = "red")
+ 
+ if Aproie >- 1:
+     for i in range (0, 88, 2):
+          for t in range(1, 89, 2):
+            # Déplacement des proies
+              deplacement1 = i + step           
+              deplacement2 = t + step2
+              if grille[deplacement1][deplacement2] != grille[i][t]:
+                    canevas.itemconfigure(grille[i][t], fill = "black")
+                    canevas.itemconfigure(grille[deplacement1][deplacement2], fill = "blue")
+     for i in range(lim_carre):
+       # Apparition des prédateurs
+        pred1 = rd.randint(0, 89)
+        pred2 = rd.randint(0, 89)
+        canevas.itemconfigure(grille[pred1][pred2], fill = "red")
+ if Aproie == 2:
+      for i in range (0, 88, 2):
+          for t in range(1, 89, 2):
+            # Fuite des proies (partie 4)
+              step3 = rd.choice([0, 1, -1])
+              step4 = rd.choice([0, 1, -1])   
+              deplacement3 = i + step3
+              deplacement4 = t + step4
+              canevas.itemconfigure(grille[i][t], fill = "black")
+              canevas.itemconfigure(grille[deplacement3][deplacement4], fill = "blue")
+
+ Aproie = Aproie - 1
+ Epre = Epre - 1
+ if Aproie == 0:
+      for i in range(lim_carre):
+          for g in range(lim_carre):
+                # Disparition des proies
+                 canevas.itemconfigure(grille[proie5][proie6], fill = "blue")
+                # Apparition de 3 nouvelles proies
+                 canevas.itemconfigure(grille[proie7][proie8], fill = "blue")
+                 canevas.itemconfigure(grille[proie9][proie10], fill = "blue") 
+                 canevas.itemconfigure(grille[i][g], fill = "black")   
+                 
+      for i in range(lim_carre):
+        # Apparition des prédateurs au hasard dans le canevas
+        pred3 = rd.randint(0, 89)
+        pred4 = rd.randint(0, 89)
+        canevas.itemconfigure(grille[pred3][pred4], fill = "red")
+                 
+ if Aproie <= -1:
+            # Création de proies
+             for i in range (lim_carre):  
+               for t in range(lim_carre):
+                   if grille[i][t] != grille[proie5][proie6] and grille[i][t] != grille[proie7][proie8] and grille[i][t] != grille[proie9][proie10]:
+                     canevas.itemconfigure(grille[i][t], fill = "black") 
+  
+             for i in range(lim_carre):
+               pred5 = rd.randint(0, 89) 
+               pred6 = rd.randint(0, 89)
+               # Dispersion des prédateurs
+               pred7 = pred5 + step 
+               pred8 = pred6 + step2
+               if pred7 < lim_carre and pred8 < lim_carre:
+                canevas.itemconfigure(grille[pred7][pred8], fill = "red")  
+                if grille[pred7][pred8] == grille[proie5][proie6] or grille[pred7][pred8] == grille[proie7][proie8] or grille[pred7][pred8] == grille[proie9][proie10]:
+                 Epre = Epre + miam  
+                 # Création d'un predateur si son niveau d'énergie est suffisant
+                 if Erepro <= Epre:
+                    canevas.itemconfigure(grille[pred6][pred5], fill = "red")
+                
+ 
+#if Aproie==0:
+   # for a2 in range(0,5,2):
+     #   for g2 in range(1,6,2):
+         #   canevas.itemconfigure(grille[l[a2]][l[g2]],fill="black")
+#if Aproie==-4:                                                         #mort des proies
+    # for a3 in range(4,9,2):
+        #for g3 in range(5,10,2):
+           # canevas.itemconfigure(grille[l[a3]][l[g3]],fill="black")
+
+#mort des predateurs
+
+# Disparition des prédateurs sous condition qu'il n'a plus d'énergie
+ if Epre == 0: 
+  for predx in range(lim_carre):
+    for predy in range(lim_carre):
+      if grille[predx][predy] != grille[proie5][proie6] or grille[predx][predy] != grille[proie7][proie8] or grille[predx][predy] != grille[proie9][proie10]:
+          canevas.itemconfigure(grille[predx][predy], fill = "black")
+      if  grille[predx][predy] == grille[proie5][proie6] or grille[predx][predy] == grille[proie7][proie8] or grille[predx][predy] == grille[proie9][proie10]:
+          canevas.itemconfigure(grille[predx][predy], fill = "red")
+
+
+#PARTIE 4
+
+ #for i in range(flair):
+    #pred= pred2+i     
+    #if pred<lim_carre:      
+        #if grille[pred1][pred]==grille[proie1][proie2] or pred>pred2:
+          # canevas.itemconfigure(grille[pred1][pred],fill="black")    #Et ainsi de suite pour les variables aleatoires des predateurs c'est à dire
+           #canevas.itemconfigure(grille[proie1][proie2],fill="red")    #pred1 à pred10 et aussi la même chose pour les proies
+
+
+bouton = tk.Button(racine,text = "Tour de jeu", command = tour_de_jeu)
+bouton.grid()
+racine.mainloop()
