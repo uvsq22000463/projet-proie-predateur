@@ -57,7 +57,7 @@ for b in range(1, lim_carre):
       canevas.itemconfigure(grille[proie3][proie4], fill = "blue")
       canevas.itemconfigure(grille[proie4][proie3], fill = "black")    
       
-# Variable servant au déplacement des proies
+# Variable servant au déplacement des proies et des prédateurs
       step = rd.choice([1, -1, 0])                               
       step2 = rd.choice([1, -1, 0])
 
