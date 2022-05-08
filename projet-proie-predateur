@@ -100,6 +100,7 @@ def tour_de_jeu() :
               if grille[deplacement1][deplacement2] != grille[i][t]:
                     canevas.itemconfigure(grille[i][t], fill = "black")
                     canevas.itemconfigure(grille[deplacement1][deplacement2], fill = "blue")
+      #le for i in range permet l'apparition de prédateurs              
      for i in range(lim_carre):
        # Apparition des prédateurs
         pred1 = rd.randint(0, 89)
