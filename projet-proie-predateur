@@ -120,14 +120,14 @@ def tour_de_jeu() :
  Aproie = Aproie - 1
  Epre = Epre - 1
  if Aproie == 0:
-      for i in range(lim_carre):
-          for g in range(lim_carre):
+      for vide3 in range(lim_carre):
+          for vide4 in range(lim_carre):
                 # Disparition des proies
                  canevas.itemconfigure(grille[proie5][proie6], fill = "blue")
                 # Apparition de 3 nouvelles proies
                  canevas.itemconfigure(grille[proie7][proie8], fill = "blue")
                  canevas.itemconfigure(grille[proie9][proie10], fill = "blue") 
-                 canevas.itemconfigure(grille[i][g], fill = "black")   
+                 canevas.itemconfigure(grille[vide3][vide4], fill = "black")   
                  
       for i in range(lim_carre):
         # Apparition des prédateurs au hasard dans le canevas
@@ -137,10 +137,10 @@ def tour_de_jeu() :
                  
  if Aproie <= -1:
             # Création de proies
-             for i in range (lim_carre):  
-               for t in range(lim_carre):
-                   if grille[i][t] != grille[proie5][proie6] and grille[i][t] != grille[proie7][proie8] and grille[i][t] != grille[proie9][proie10]:
-                     canevas.itemconfigure(grille[i][t], fill = "black") 
+             for vide5 in range (lim_carre):  
+               for vide6 in range(lim_carre):
+                   if grille[vide5][vide6] != grille[proie5][proie6] and grille[vide5][vide6] != grille[proie7][proie8] and grille[vide5][vide6] != grille[proie9][proie10]:
+                     canevas.itemconfigure(grille[vide5][vide6], fill = "black") 
   
              for i in range(lim_carre):
                pred5 = rd.randint(0, 89) 
@@ -158,13 +158,13 @@ def tour_de_jeu() :
                 
  
 #if Aproie==0:
-   # for a2 in range(0,5,2):
-     #   for g2 in range(1,6,2):
-         #   canevas.itemconfigure(grille[l[a2]][l[g2]],fill="black")
+   # for dead1 in range(0,5,2):
+     #   for dead2 in range(1,6,2):
+         #   canevas.itemconfigure(grille[l[dead1]][l[dead2]],fill="black")
 #if Aproie==-4:                                                         #mort des proies
-    # for a3 in range(4,9,2):
-        #for g3 in range(5,10,2):
-           # canevas.itemconfigure(grille[l[a3]][l[g3]],fill="black")
+    # for dead3 in range(4,9,2):
+        #for dead4 in range(5,10,2):
+           # canevas.itemconfigure(grille[l[dead3]][l[dead4]],fill="black")
 
 #mort des predateurs
 
