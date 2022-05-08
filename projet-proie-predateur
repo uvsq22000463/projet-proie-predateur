@@ -27,9 +27,10 @@ haut = 450
 larg_case = larg // lim_carre
 haut_case = haut // lim_carre
 grille = None
-Aproie = 3
+Apro = 3
 Apre = 5
 Epre = 4
+Fpro=3
 miam = 1
 Erepro = 6
 flair = 6
@@ -66,7 +67,7 @@ for b in range(1, lim_carre):
 # Fonction pour utilisé le boutton "Tour de jeu"
 def tour_de_jeu() :
   # La portée des variables s'étend à tout le programme
- global Aproie, grille, l, Apre, step3, step4, miam, Epre, flair,lim_carre2
+ global Apro, grille, l, Apre, step3, step4, miam, Epre, flair,lim_carre2
  
  # Apparition des proies et des prédateures au hasard dans le canevas
  # Chaque tour de jeu il y'a 3 nouvelles proies
@@ -91,7 +92,7 @@ def tour_de_jeu() :
      canevas.itemconfigure(grille[proie9][proie10], fill = "blue")
  canevas.itemconfigure(grille[pred_a][pred_b], fill = "red")
  
- if Aproie >- 1:
+ if Apro >- 1:
      for i in range (0, 28, 2):
           for t in range(1, lim_carre2, 2):
             # Déplacement des proies
@@ -106,7 +107,7 @@ def tour_de_jeu() :
         pred1 = rd.randint(0, lim_carre2)
         pred2 = rd.randint(0, lim_carre2)
         canevas.itemconfigure(grille[pred1][pred2], fill = "red")
- if Aproie == 2:
+ if Apro == 2:
       for i in range (0, 28, 2):
           for t in range(1, lim_carre2, 2):
             # Fuite des proies (partie 4)
@@ -117,9 +118,9 @@ def tour_de_jeu() :
               canevas.itemconfigure(grille[i][t], fill = "black")
               canevas.itemconfigure(grille[deplacement3][deplacement4], fill = "blue")
 
- Aproie = Aproie - 1
+ Apro = Apro - 1
  Epre = Epre - 1
- if Aproie == 0:
+ if Apro == 0:
       for vide3 in range(lim_carre):
           for vide4 in range(lim_carre):
                 # Disparition des proies
@@ -135,7 +136,7 @@ def tour_de_jeu() :
         pred4 = rd.randint(0, lim_carre2)
         canevas.itemconfigure(grille[pred3][pred4], fill = "red")
                  
- if Aproie <= -1:
+ if Apro <= -1:
             # Création de proies
              for vide5 in range (lim_carre):  
                for vide6 in range(lim_carre):
@@ -157,11 +158,11 @@ def tour_de_jeu() :
                     canevas.itemconfigure(grille[pred6][pred5], fill = "red")
                 
  
-#if Aproie==0:
+#if Apro==-3:
    # for dead1 in range(0,5,2):
      #   for dead2 in range(1,6,2):
          #   canevas.itemconfigure(grille[l[dead1]][l[dead2]],fill="black")
-#if Aproie==-4:                                                         #mort des proies
+#if Apro==-6:                                                         #mort des proies
     # for dead3 in range(4,9,2):
         #for dead4 in range(5,10,2):
            # canevas.itemconfigure(grille[l[dead3]][l[dead4]],fill="black")
