@@ -22,8 +22,8 @@ racine.title("Proie-Prédateur")
 
 # Variables
 lim_carre = 30
-larg = 500
-haut = 500
+larg = 450
+haut = 450
 larg_case = larg // lim_carre
 haut_case = haut // lim_carre
 grille = None
