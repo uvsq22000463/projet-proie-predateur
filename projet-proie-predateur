@@ -79,7 +79,7 @@ def tour_de_jeu() :
  proie10 = rd.randint(0, lim_carre2)
  pred_a = rd.randint(0, lim_carre2) 
  pred_b = rd.randint(0, lim_carre2)
- l_pred.extend([pred_a,ppred_b])
+ l_pred.extend([pred_a,pred_b])
  # Liste qui enregistre les coordonnées des proies
  l_proie.extend([proie5, proie6])
 
