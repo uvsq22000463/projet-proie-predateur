@@ -1,5 +1,5 @@
 # projet-proie-predateur
-projet-proie-predateur
+# projet-proie-predateur
 
 #########################################
 # groupe MIASHS TD01
@@ -30,7 +30,7 @@ grille = None
 Apro = 3
 Apre = 5
 Epre = 4
-Fpro=3
+Fpro = 3
 miam = 1
 Erepro = 6
 flair = 6
@@ -66,11 +66,11 @@ for b in range(1, lim_carre):
 
 # Fonction pour utilisé le boutton "Tour de jeu"
 def tour_de_jeu() :
-  # La portée des variables s'étend à tout le programme
+# La portée des variables s'étend à tout le programme
  global Apro, grille, l_proie, Apre, step3, step4, miam, Epre, flair,lim_carre2,l_pred
  
- # Apparition des proies et des prédateures au hasard dans le canevas
- # Chaque tour de jeu il y'a 3 nouvelles proies
+# Apparition des proies et des prédateures au hasard dans le canevas
+# Chaque tour de jeu il y'a 3 nouvelles proies
  proie5 = rd.randint(0, lim_carre2)
  proie6 = rd.randint(0, lim_carre2) 
  proie7 = rd.randint(0, lim_carre2)
@@ -79,11 +79,11 @@ def tour_de_jeu() :
  proie10 = rd.randint(0, lim_carre2)
  pred_a = rd.randint(0, lim_carre2) 
  pred_b = rd.randint(0, lim_carre2)
- l_pred.extend([pred_a,pred_b])
- # Liste qui enregistre les coordonnées des proies
+ l_pred.extend([pred_a, pred_b])
+# Liste qui enregistre les coordonnées des proies
  l_proie.extend([proie5, proie6])
 
-  # Condition pour ne pas que les proies remplacent les prédateurs
+# Condition pour ne pas que les proies remplacent les prédateurs
  if grille[proie5][proie6] != grille[pred_a][pred_b] and grille[proie7][proie8] != grille[pred_a][pred_b] and grille[proie9][proie10] != grille[pred_a][pred_b]:
      canevas.itemconfigure(grille[proie5][proie6], fill = "blue") 
      l_proie.extend([proie7,proie8])
@@ -106,7 +106,7 @@ def tour_de_jeu() :
                     if grille[i][t] == grille[pres][t]:
                           canevas.itemconfigure(grille[proiex][t], fill = "blue")
                           
-      # For i in range permet l'apparition de prédateurs              
+    # For i in range permet l'apparition de prédateurs              
      for i in range(lim_carre):
        # Apparition des prédateurs
         pred1 = rd.randint(0, lim_carre2)
@@ -180,14 +180,14 @@ def tour_de_jeu() :
 #mort des predateurs
 
 # Disparition des prédateurs sous condition qu'il n'a plus d'énergie
- if Epre == 0: 
+ if Epre == 0:
   for predx in range(lim_carre):
     for predy in range(lim_carre):
       if grille[predx][predy] != grille[proie5][proie6] or grille[predx][predy] != grille[proie7][proie8] or grille[predx][predy] != grille[proie9][proie10]:
           canevas.itemconfigure(grille[predx][predy], fill = "black")
-  canevas.itemconfigure(grille[proie5][proie6],fill="blue")
-  canevas.itemconfigure(grille[proie7][proie8],fill="blue")
-  canevas.itemconfigure(grille[proie9][proie10],fill="blue")  
+  canevas.itemconfigure(grille[proie5][proie6], fill = "blue")
+  canevas.itemconfigure(grille[proie7][proie8], fill = "blue")
+  canevas.itemconfigure(grille[proie9][proie10], fill = "blue")  
   
 #PARTIE 4
 
