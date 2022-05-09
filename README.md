@@ -13,7 +13,7 @@ projet-proie-predateur
 Dans le cadre de notre projet,nous avons décidé de modéliser cet ecosystéme de proies et de prédateurs en une grille,
 avec les predateurs en rouges et les proies en bleu.
 # Travail:
- Dawoud a crée le canevas puis il a codé l'apparition et la disparition des proies et il a mis les commentaires utiles à la compréhension du code.
+ Dawoud a crée le canevas puis il a codé l'apparition et la disparition des proies et il a mis les commentaires utiles à la compréhension du code ainsi que la bonne rédaction du code.
  Adama s'est occupée du déplacement des proies,la création des variables et des listes ,de la reproduction des proies de toute la partie 3 et la partie 4, il s'est aussi occupée du README.
 
 # Tout d'abord nous avons crée la grille qui provient d'un code d'un de nos professeurs.
@@ -68,7 +68,7 @@ si 2 proies sont côte à côte on ecrit if grille[i][t]==grille[pres][t] (à sa
   # Niveau d'énergie suffisant:
   A chaque tour de jeu Epre diminue de 1 et si le prédateur mange une proie Epre augmente de 1 ,avec Erepro qui est le niveau d'énergie minimal pour qu'une     prédateur soit crée, si Epre est supérieur ou égale à Epro alors un prédateur est crée aléatoirement sur la grille.
   
-# Probléme:
+# Problème:
  je n'ai pas pu créer une fonction qui permet de faire mourir les proies mais j'ai pu le faire pour Apro=-3 et -6 car c'est à ce moment que la durée de vie des 
  proies est nulle. J'ai crée 2 boucles une avec la variable dead1 qui va de 0 à 4 avec une marge de 2 et une autre avec la variable dead2 qui va de 1 à 5 avec une marge ces 2 variables correspondent aux 3 premiéres proies  et ainsi avec ces variables on a transformé les 3 cases en noir avec la liste l_proie.
  J'ai crée 2 boucles une avec la variable dead1 qui va de 4 à 9 avec une marge de 2 et une autre avec la variable dead2 qui va de 5 à 10 avec une marge ces 2 variables correspondent aux 3 deuxiéme proies et ainsi avec ces variables on a transformé les 3 cases en noir.
