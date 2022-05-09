@@ -107,7 +107,7 @@ def tour_de_jeu() :
                           canevas.itemconfigure(grille[proiex][t], fill = "blue")
                           
       # For i in range permet l'apparition de prédateurs              
-    for i in range(lim_carre):
+   for i in range(lim_carre):
        # Apparition des prédateurs
         pred1 = rd.randint(0, lim_carre2)
         pred2 = rd.randint(0, lim_carre2)
