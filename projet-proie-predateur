@@ -34,10 +34,10 @@ Fpro=3
 miam = 1
 Erepro = 6
 flair = 6
-lim_carre2=29
+lim_carre2 = 29
 # Liste
-l_proie=[]
-l_pred=[]
+l_proie = []
+l_pred = []
 # Création des proies en bleu et des prédateurs en rouge
 grille = [[0 for i in range(lim_carre)]for j in range(lim_carre)]
 
@@ -94,19 +94,19 @@ def tour_de_jeu() :
  
  for i in range (0, 28, 2):
      for t in range(1, lim_carre2, 2):
-            # Déplacement des proies# 
+            # Déplacement des proies 
               deplacement1 = i + step           
               deplacement2 = t + step2
-              proiex=i+step
-              pres=i+step2
+              proiex = i+step
+              pres = i+step2
               if grille[deplacement1][deplacement2] != grille[i][t]:
                     canevas.itemconfigure(grille[i][t], fill = "black")
                     canevas.itemconfigure(grille[deplacement1][deplacement2], fill = "blue")
-                    #creation d'un proie aléatoirement sous reserve que 2 proies soient côte à côte#                    
-                    if grille[i][t]==grille[pres][t]:
-                          canevas.itemconfigure(grille[proiex][t],fill="blue")
+                    # Création d'une proie aléatoirement sous reserve que 2 proies soient côte à côte                 
+                    if grille[i][t] == grille[pres][t]:
+                          canevas.itemconfigure(grille[proiex][t], fill = "blue")
                           
-      #le for i in range permet l'apparition de prédateurs              
+      # For i in range permet l'apparition de prédateurs              
       for i in range(lim_carre):
        # Apparition des prédateurs
         pred1 = rd.randint(0, lim_carre2)
@@ -140,7 +140,7 @@ def tour_de_jeu() :
         # Apparition des prédateurs au hasard dans le canevas
         pred3 = rd.randint(0, lim_carre2)
         pred4 = rd.randint(0, lim_carre2)
-        l_pred.extend([pred3,pred4])
+        l_pred.extend([pred3, pred4])
         canevas.itemconfigure(grille[pred3][pred4], fill = "red")
                  
  if Apro <= -1:
@@ -188,6 +188,7 @@ def tour_de_jeu() :
   canevas.itemconfigure(grille[proie5][proie6],fill="blue")
   canevas.itemconfigure(grille[proie7][proie8],fill="blue")
   canevas.itemconfigure(grille[proie9][proie10],fill="blue")  
+  
 #PARTIE 4
 
  #for i in range(lim_carre):
@@ -200,6 +201,7 @@ def tour_de_jeu() :
          # canevas.itemconfigure(grille[l_proie[i]][l_proie[v]],fill="red")
          # canevas.itemconfigure(grille[predw][l_pred[i]],fill="black)
          # canevas.itemconfigure(grille[predq][l_pred[i]],fill="black)
+         
 bouton = tk.Button(racine,text = "Tour de jeu", command = tour_de_jeu)
 bouton.grid()
 racine.mainloop()
