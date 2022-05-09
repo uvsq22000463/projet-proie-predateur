@@ -14,7 +14,7 @@ Dans le cadre de notre projet,nous avons décidé de modéliser cet ecosystéme 
 avec les predateurs en rouges et les proies en bleu.
 # Travail:
  Dawoud a crée le canevas puis il a codé l'apparition et la disparition des proies et il a mis les commentaires utiles à la compréhension du code.
- Adama s'est occupée du déplacement des proies,de la reproduction des proies de toute la partie 3 et la partie 4, il s'est aussi occupée du README.
+ Adama s'est occupée du déplacement des proies,la création des variables et des listes ,de la reproduction des proies de toute la partie 3 et la partie 4, il s'est aussi occupée du README.
 
 # Tout d'abord nous avons crée la grille qui provient d'un code d'un de nos professeurs.
 
